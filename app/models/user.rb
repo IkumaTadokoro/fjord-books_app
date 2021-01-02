@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   validates :uid, uniqueness: { scope: :provider }
 
-  def self.find_or_create_from_auth_hash!(auth)
-    find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
+  def self.find_or_create_from_auth_hash(auth)
+    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.name = auth.info.name
       user.email = auth.info.email
       user.password = Devise.friendly_token
