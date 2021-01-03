@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable
 
-  validates :uid, uniqueness: { scope: :provider }
+  validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
   def self.find_or_create_from_auth_hash(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
