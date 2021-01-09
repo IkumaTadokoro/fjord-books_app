@@ -66,3 +66,5 @@ gem 'kaminari'
 
 gem 'omniauth'
 gem 'omniauth-github'
+
+gem 'active_storage_validations'

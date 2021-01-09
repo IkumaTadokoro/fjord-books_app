@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[github]
 
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
+  validates :icon, content_type: %i[png jpg jpeg gif]
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
