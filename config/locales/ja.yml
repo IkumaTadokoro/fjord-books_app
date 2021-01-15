@@ -228,8 +228,8 @@ ja:
     show:
       create: フォローする
       destroy: フォロー解除する
-      followings: フォロー中
-      followers: フォロワー
+      followings: "%{count}フォロー中"
+      followers: "%{count}フォロワー"
     followings:
       index:
         title: フォロー一覧
