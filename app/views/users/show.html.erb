@@ -53,6 +53,9 @@
   <%= @user.followers.count %>
 </p>
 
+<%= link_to t('users.followings.index.title'), user_followings_path(@user) %>
+<%= link_to t('users.followers.index.title'), user_followers_path(@user) %>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>

@@ -228,6 +228,14 @@ ja:
     show:
       create: フォローする
       destroy: フォロー解除する
+      followings: フォロー中
+      followers: フォロワー
+    followings:
+      index:
+        title: フォロー一覧
+    followers:
+      index:
+        title: フォロワー一覧
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
