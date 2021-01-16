@@ -7,10 +7,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  has_many :relationships_as_follower, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy
+  has_many :relationships_as_follower, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy, inverse_of: :follower
   has_many :followings, through: :relationships_as_follower
-
-  has_many :relationships_as_following, class_name: 'Relationship', foreign_key: :following_id, dependent: :destroy
+  has_many :relationships_as_following, class_name: 'Relationship', foreign_key: :following_id, dependent: :destroy, inverse_of: :following
   has_many :followers, through: :relationships_as_following
 
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
