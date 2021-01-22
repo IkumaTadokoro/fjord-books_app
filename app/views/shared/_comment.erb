@@ -7,6 +7,9 @@
         <%= comment.contents %>
         <%= comment.user.name_or_email %>
         <%= l comment.created_at %>
+        <% if comment.user == current_user %>
+          <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+        <% end %>
       </li>
     <% end %>
   </ul>
