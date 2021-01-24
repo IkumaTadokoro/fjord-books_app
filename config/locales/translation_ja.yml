@@ -21,4 +21,6 @@ ja:
         contents: 本文
         user: 作成者
         created_at: 投稿日時
+      comment:
+        contents: コメント
 

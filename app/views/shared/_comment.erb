@@ -17,7 +17,8 @@
 <% else %>
   <%= 'まだコメントは投稿されていません' %>
 <% end %>
-  <%= form_with model: [commentable, commentable.comments.new], local: true do |f| %>
+<%= form_with model: [commentable, commentable.comments.new], local: false do |f| %>
+  <div id="errors"></div>
   <%= f.text_field :contents, required: true %>
-  <%= f.submit %>
+  <%= f.submit t('.create') %>
 <% end %>

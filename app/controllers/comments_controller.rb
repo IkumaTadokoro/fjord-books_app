@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
   def create
-    comment = @commentable.comments.new(comment_params)
-    comment.user = current_user
+    @comment = @commentable.comments.new(comment_params)
+    @comment.user = current_user
 
-    if comment.save
+    if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      # TODO:バリデーションエラー（必須項目なし）の場合のリダイレクト先
+      render :create
     end
   end
 
