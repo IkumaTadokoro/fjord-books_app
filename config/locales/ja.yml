@@ -137,7 +137,7 @@ ja:
       body: 次の項目を確認してください
       header:
         one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
+        other: "%{count}個のエラーがあるため、%{model}を保存出来ません。"
   helpers:
     select:
       prompt: 選択してください
@@ -231,6 +231,7 @@ ja:
   shared:
     comment:
       create: コメントする
+      empty: まだコメントは投稿されていません
   users:
     show:
       followings: "%{count} フォロー"

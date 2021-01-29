@@ -1,5 +1,5 @@
 <div id="error_explanation">
-  <h2><%= pluralize(errors.count, "error") %> prohibited this comment from being saved:</h2>
+  <h2><%= t('errors.template.header.other', model: Comment.model_name.human, count: errors.count) %></h2>
 
   <ul>
     <% errors.full_messages.each do |message| %>

@@ -15,7 +15,7 @@
     <% end %>
   </ul>
 <% else %>
-  <%= 'まだコメントは投稿されていません' %>
+  <%= t('.empty') %>
 <% end %>
 <%= form_with model: [commentable, commentable.comments.new], local: false do |f| %>
   <div id="errors"></div>
