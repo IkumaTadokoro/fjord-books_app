@@ -1,0 +1,9 @@
+<div id="error_explanation">
+  <h2><%= t('errors.template.header.other', model: Comment.model_name.human, count: errors.count) %></h2>
+
+  <ul>
+    <% errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>

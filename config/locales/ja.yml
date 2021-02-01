@@ -137,7 +137,7 @@ ja:
       body: 次の項目を確認してください
       header:
         one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
+        other: "%{count}個のエラーがあるため、%{model}を保存出来ません。"
   helpers:
     select:
       prompt: 選択してください
@@ -201,7 +201,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -228,6 +228,10 @@ ja:
     application:
       menu: メニュー
       sign_in_as: "%{email} としてログイン中"
+  shared:
+    comment:
+      create: コメントする
+      empty: まだコメントは投稿されていません
   users:
     show:
       followings: "%{count} フォロー"

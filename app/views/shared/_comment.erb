@@ -1,0 +1,24 @@
+<h2><%= Comment.model_name.human %></h2>
+
+<% if commentable.comments.present? %>
+  <ul>
+    <% commentable.comments.includes(:user).each do |comment| %>
+      <li>
+        <%= comment.contents %>
+        <%= comment.user.name_or_email %>
+        <%= l comment.created_at %>
+        <% if comment.user == current_user %>
+          <%= link_to t('views.common.edit'), [:edit, commentable, comment] %>
+          <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= t('.empty') %>
+<% end %>
+<%= form_with model: [commentable, commentable.comments.new], local: false do |f| %>
+  <div id="errors"></div>
+  <%= f.text_field :contents, required: true %>
+  <%= f.submit t('.create') %>
+<% end %>
