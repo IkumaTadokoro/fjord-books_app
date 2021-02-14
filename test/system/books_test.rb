@@ -10,20 +10,22 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'visiting the index' do
     visit books_url
+    assert_current_path('/books')
     assert_selector 'h1', text: '本'
   end
 
   test 'creating a Book' do
     visit books_url
     click_link '新規作成'
-
+    assert_current_path('/books/new')
     fill_in 'メモ', with: @book.memo
     fill_in 'タイトル', with: @book.title
     fill_in '著者', with: @book.author
     click_button '登録する'
-
+    assert_current_path('/books/2')
     assert_text '本が作成されました'
     click_link '戻る'
+    assert_current_path('/books')
     assert_text '独学大全'
     assert_text '独学はいつでもやめることができるのだ'
     assert_text '読書猿'
@@ -32,14 +34,15 @@ class BooksTest < ApplicationSystemTestCase
   test 'updating a Book' do
     visit books_url
     click_link '編集'
-
+    assert_current_path('/books/1/edit')
     fill_in 'メモ', with: '現代でも役立つ知識がここにある'
     fill_in 'タイトル', with: '孫氏の兵法'
     fill_in '著者', with: '孫氏'
     click_button '更新する'
-
+    assert_current_path('/books/1')
     assert_text '本が更新されました'
     click_link '戻る'
+    assert_current_path('/books')
     assert_text '孫氏の兵法'
     assert_text '現代でも役立つ知識がここにある'
     assert_text '孫氏'
@@ -47,10 +50,8 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'destroying a Book' do
     visit books_url
-    page.accept_confirm do
-      click_link '削除'
-    end
-
+    page.accept_confirm { click_link '削除' }
+    assert_current_path('/books')
     assert_text '本が削除されました'
     assert_no_text '独学大全'
     assert_no_text '独学はいつでもやめることができるのだ'

@@ -10,18 +10,22 @@ class CommentsTest < ApplicationSystemTestCase
 
   test 'comment on books' do
     visit book_path(create(:book))
+    assert_current_path('/books/1')
     fill_in 'comment_content', with: 'おすすめの本です'
     click_button 'コメントする'
     assert_text 'コメントが投稿されました。'
+    assert_current_path('/books/1')
     assert_text 'おすすめの本です'
     assert_text 'Alice'
   end
 
   test 'comment on report' do
     visit report_path(create(:report, user: @alice))
+    assert_current_path('/reports/1')
     fill_in 'comment_content', with: '今日も1日お疲れ様でした！'
     click_button 'コメントする'
     assert_text 'コメントが投稿されました。'
+    assert_current_path('/reports/1')
     assert_text '今日も1日お疲れ様でした'
     assert_text 'Alice'
   end
