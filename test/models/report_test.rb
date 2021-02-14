@@ -4,9 +4,9 @@ require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
   setup do
-    @owner = create(:alice)
-    @not_owner_user = create(:bob)
-    @report = create(:report, user_id: @owner.id)
+    @owner = create(:user)
+    @not_owner_user = create(:user)
+    @report = create(:report, user: @owner)
   end
 
   test '#editable?' do

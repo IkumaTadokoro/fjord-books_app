@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class CommentsTest < ApplicationSystemTestCase
   def setup
-    @alice = create(:alice)
+    @alice = create(:user, name: 'Alice')
     basic_sign_in_as(@alice)
   end
 
@@ -18,7 +18,7 @@ class CommentsTest < ApplicationSystemTestCase
   end
 
   test 'comment on report' do
-    visit report_path(create(:report, user_id: @alice.id))
+    visit report_path(create(:report, user: @alice))
     fill_in 'comment_content', with: '今日も1日お疲れ様でした！'
     click_button 'コメントする'
     assert_text 'コメントが投稿されました。'

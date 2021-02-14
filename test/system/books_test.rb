@@ -5,7 +5,7 @@ require 'application_system_test_case'
 class BooksTest < ApplicationSystemTestCase
   setup do
     @book = create(:book)
-    basic_sign_in_as(create(:alice))
+    basic_sign_in_as(create(:user))
   end
 
   test 'visiting the index' do

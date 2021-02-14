@@ -4,8 +4,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test '#follow / #unfollow' do
-    alice = create(:alice)
-    bob = create(:bob)
+    alice = create(:user)
+    bob = create(:user)
 
     assert_not alice.following?(bob)
     assert_not bob.followed_by?(alice)
@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test '#name_or_email' do
-    alice = FactoryBot.create(:alice)
+    alice = create(:user, email: 'alice@example.com', name: 'Alice')
     assert 'Alice', alice.name_or_email
     alice.name = ''
     assert 'alice.example.com', alice.name_or_email

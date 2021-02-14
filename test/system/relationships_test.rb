@@ -4,8 +4,8 @@ require 'application_system_test_case'
 
 class RelationshipsTest < ApplicationSystemTestCase
   def setup
-    @alice = create(:alice)
-    @bob = create(:bob)
+    @alice = create(:user)
+    @bob = create(:user)
     basic_sign_in_as(@alice)
   end
 

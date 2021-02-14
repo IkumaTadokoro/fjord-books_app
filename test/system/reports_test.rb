@@ -4,8 +4,8 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    alice = create(:alice)
-    @report = create(:report, user_id: alice.id)
+    alice = create(:user, name: 'Alice')
+    @report = create(:report, user: alice)
     basic_sign_in_as(alice)
   end
 
