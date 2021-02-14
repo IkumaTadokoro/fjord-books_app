@@ -17,8 +17,8 @@ class UserTest < ActiveSupport::TestCase
 
   test '#name_or_email' do
     alice = create(:user, email: 'alice@example.com', name: 'Alice')
-    assert 'Alice', alice.name_or_email
+    assert_equal 'Alice', alice.name_or_email
     alice.name = ''
-    assert 'alice.example.com', alice.name_or_email
+    assert_equal 'alice@example.com', alice.name_or_email
   end
 end
