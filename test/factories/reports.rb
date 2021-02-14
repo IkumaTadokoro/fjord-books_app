@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :report do
-    user_id { '' }
+    user
     title { 'Railsでテスト' }
     content { '今日はRailsでテストを書きました' }
   end
